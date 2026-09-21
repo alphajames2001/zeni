@@ -36,7 +36,7 @@ function GamePage() {
   const username = state.session?.user.username ?? null;
 
   return (
-    <div className="flex min-h-screen flex-col bg-background lg:h-screen lg:overflow-hidden">
+    <div className="flex min-h-screen flex-col bg-background lg:min-h-dvh">
       <OnboardingTour />
 
       {/* Vignette glows */}
@@ -48,7 +48,7 @@ function GamePage() {
 
       <Navbar />
 
-      <main className="relative mx-auto flex w-full flex-1 max-w-[1680px] flex-col gap-3 p-3 sm:p-5 lg:min-h-0 lg:gap-2 lg:p-2">
+      <main className="relative mx-auto flex w-full flex-1 max-w-[1680px] flex-col gap-3 p-3 sm:p-5 lg:gap-2 lg:p-2">
         {/* Marquee header */}
         <div className="felt-surface flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 py-2.5 lg:flex-nowrap lg:gap-2 lg:py-2 sm:px-5">
           <div className="flex items-center gap-3">
