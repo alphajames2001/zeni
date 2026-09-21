@@ -1,0 +1,368 @@
+/* ===== styles.css ===== */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ZeniPesa — Classic Casino Crash.
+ *
+ * Palette — the felt floor:
+ *   Primary:    #D4AF37 (green & gold / antique brass)
+ *   Secondary:  #F4ECD7 (champagne ivory)
+ *   Accent:     #4A0D10 (deep maroon), #3FAE6A (table green)
+ *   Background: #07110C (midnight felt)
+ *   Alert:      #D4342C (house red)
+ *   Warning:    #FFC62E (jackpot gold)
+ *   Success:    #3FAE6A (lucky green)
+ *
+ * Types — engraved casino signage:
+ *   Display: Cinzel (Roman engravings)
+ *   Body:    Manrope
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-panel: var(--panel);
+  --color-panel-foreground: var(--panel-foreground);
+  --color-elevated: var(--elevated);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: "Cinzel", Georgia, "Times New Roman", serif;
+  --font-sans:
+    "Manrope", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --animate-crash-flash: crash-flash 0.5s ease-out;
+  --animate-rise: rise 0.35s ease-out;
+  --animate-gold-pulse: gold-pulse 2s ease-in-out infinite;
+  --animate-marquee: marquee 3s linear infinite;
+  --animate-felt-sheen: felt-sheen 9s ease-in-out infinite;
+  --animate-chip-flip: chip-flip 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+}
+
+:root {
+  --radius: 0.9rem;
+
+  /* Midnight felt */
+  --background: #07110c;
+  --foreground: #f4ecd7;
+
+  --card: #0b1d14;
+  --card-foreground: #f4ecd7;
+  --panel: linear-gradient(160deg, #132c20 0%, #0b2015 100%);
+  --panel-foreground: #f4ecd7;
+  --elevated: #163726;
+
+  --popover: #0f2017;
+  --popover-foreground: #f4ecd7;
+
+  /* PRIMARY: antique brass gold */
+  --primary: #d4af37;
+  --primary-foreground: #16150d;
+
+  /* SECONDARY: champagne ivory */
+  --secondary: #f4ecd7;
+  --secondary-foreground: #16150d;
+
+  --muted: #123020;
+  --muted-foreground: #a9b795;
+
+  --accent: #4a0d10;
+  --accent-foreground: #f6ead2;
+
+  --destructive: #d4342c;
+  --destructive-foreground: #ffffff;
+
+  /* DANGER: brighter "house red" for text on dark surfaces */
+  --danger: #ff6b60;
+
+  --warning: #ffc62e;
+  --warning-foreground: #16150d;
+
+  --success: #3fae6a;
+  --success-foreground: #0f2318;
+
+  --border: #2c4a36;
+  --input: #123020;
+  --ring: #d4af37;
+
+  --chart-1: #d4af37;
+  --chart-2: #3fae6a;
+  --chart-3: #d4342c;
+  --chart-4: #ffc62e;
+  --chart-5: #f4ecd7;
+
+  --glow-primary:
+    0 0 32px rgba(212, 175, 55, 0.28), 0 0 60px rgba(212, 175, 55, 0.1);
+  --glow-secondary: 0 0 32px rgba(244, 236, 215, 0.2);
+  --glow-gold: 0 0 34px rgba(255, 198, 46, 0.35);
+  --glow-coral: 0 0 34px rgba(212, 52, 44, 0.3);
+  --gradient-panel: linear-gradient(160deg, #132c20 0%, #0b2015 100%);
+  --gradient-primary: linear-gradient(135deg, #d4af37, #aa8524);
+  --gradient-secondary: linear-gradient(135deg, #f4ecd7, #d9ceb0);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@keyframes crash-flash {
+  0% {
+    background-color: rgba(212, 52, 44, 0.22);
+    box-shadow: 0 0 70px rgba(212, 52, 44, 0.2);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gold-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 14px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 34px rgba(212, 175, 55, 0.7),
+      0 0 70px rgba(212, 175, 55, 0.28);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 48px 0;
+  }
+}
+
+@keyframes felt-sheen {
+  0%,
+  100% {
+    opacity: 0.08;
+    transform: translateX(-20%) skewX(-18deg);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translateX(20%) skewX(-18deg);
+  }
+}
+
+@keyframes chip-flip {
+  from {
+    opacity: 0.4;
+    transform: rotate(-12deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes shield-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Decorated gold frame — the double-rule look of an old gaming hall */
+@utility gold-frame {
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(7, 17, 12, 0.9),
+    0 0 0 4px rgba(212, 175, 55, 0.3),
+    0 0 0 7px rgba(7, 17, 12, 0.9),
+    0 0 0 8px rgba(212, 175, 55, 0.45),
+    inset 0 0 24px rgba(0, 0, 0, 0.5),
+    0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+/* Route-line marquee lights (chase animation) */
+@utility marquee-lights {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 198, 46, 0.9) 0px,
+    rgba(255, 198, 46, 0.9) 6px,
+    rgba(212, 175, 55, 0.08) 6px,
+    rgba(212, 175, 55, 0.08) 22px,
+    rgba(212, 52, 44, 0.9) 22px,
+    rgba(212, 52, 44, 0.9) 28px,
+    rgba(212, 175, 55, 0.08) 28px,
+    rgba(212, 175, 55, 0.08) 48px
+  );
+  background-size: 48px 100%;
+  animation: marquee 3s linear infinite;
+}
+
+/* Felt table panel */
+@utility felt-surface {
+  background:
+    radial-gradient(
+      120% 160% at 50% -20%,
+      rgba(212, 175, 55, 0.08),
+      transparent 55%
+    ),
+    linear-gradient(160deg, #123024 0%, #0a1c12 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(244, 236, 215, 0.06),
+    0 14px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+@utility felt-sheen {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      110deg,
+      transparent 35%,
+      rgba(244, 236, 215, 0.35) 50%,
+      transparent 65%
+    );
+    animation: felt-sheen 9s ease-in-out infinite;
+  }
+}
+
+/* Deep-shadowed engraving for headings */
+@utility engravure-text {
+  color: transparent;
+  background: linear-gradient(180deg, #f8e494 0%, #d4af37 55%, #a47b1e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+@utility gold-chip {
+  border-radius: 9999px;
+  background:
+    linear-gradient(0deg, rgba(22, 21, 13, 0.9), rgba(22, 21, 13, 0.9)),
+    repeating-linear-gradient(45deg, #d4af37 0 2px, #0b2015 2px 4px);
+  background-blend-mode: soft-light;
+  border: 1px solid rgba(212, 175, 55, 0.7);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 240, 184, 0.4),
+    0 0 22px rgba(212, 175, 55, 0.18);
+}
+
+@utility felt-ring {
+  border-radius: 9999px;
+  border: 1px dashed rgba(63, 174, 106, 0.5);
+  background: rgba(11, 29, 20, 0.85);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: dark;
+    background: #07110c;
+  }
+
+  body {
+    background:
+      radial-gradient(
+        ellipse at 50% -10%,
+        rgba(212, 175, 55, 0.1),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse at 90% 110%,
+        rgba(74, 13, 16, 0.28),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 10% 100%,
+        rgba(63, 174, 106, 0.08),
+        transparent 50%
+      ),
+      linear-gradient(180deg, #0a1810 0%, #060d09 100%);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+}

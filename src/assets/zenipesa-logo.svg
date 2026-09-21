@@ -1,0 +1,56 @@
+<svg width="640" height="170" viewBox="0 0 640 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gp-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7E28A"/>
+      <stop offset="0.5" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#A47B1E"/>
+    </linearGradient>
+    <linearGradient id="gp-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#173E2A"/>
+      <stop offset="1" stop-color="#0B2115"/>
+    </linearGradient>
+    <linearGradient id="gp-edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF0B8"/>
+      <stop offset="0.5" stop-color="#D4AF37"/>
+      <stop offset="1" stop-color="#8F6A15"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Playing-card diamond flourish behind the chip -->
+  <path d="M85 8 L100 40 L85 72 L70 40 Z" fill="url(#gp-gold)" opacity="0.85"/>
+  <path d="M85 98 L100 130 L85 162 L70 130 Z" fill="url(#gp-gold)" opacity="0.85"/>
+
+  <!-- Casino chip: outer rims -->
+  <circle cx="85" cy="85" r="62" fill="#0B2115"/>
+  <circle cx="85" cy="85" r="56" fill="none" stroke="url(#gp-gold)" stroke-width="5"/>
+  <circle cx="85" cy="85" r="46" fill="none" stroke="url(#gp-gold)" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="85" cy="85" r="42" fill="url(#gp-dark)" stroke="#0B2115" stroke-width="2"/>
+
+  <!-- Chip edge dots -->
+  <g stroke="url(#gp-edge)" stroke-width="3">
+    <circle cx="85" cy="27" r="2.2" fill="none"/>
+    <circle cx="85" cy="143" r="2.2" fill="none"/>
+    <circle cx="27" cy="85" r="2.2" fill="none"/>
+    <circle cx="143" cy="85" r="2.2" fill="none"/>
+    <circle cx="44" cy="44" r="2.2" fill="none"/>
+    <circle cx="126" cy="44" r="2.2" fill="none"/>
+    <circle cx="44" cy="126" r="2.2" fill="none"/>
+    <circle cx="126" cy="126" r="2.2" fill="none"/>
+  </g>
+
+  <!-- Z monogram -->
+  <text x="85" y="103" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="50" font-weight="700" fill="url(#gp-gold)" letter-spacing="1">Z</text>
+  <text x="114" y="92" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="700" fill="#E8D9A0" opacity="0.85">◆</text>
+
+  <!-- Wordmark -->
+  <text x="180" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="url(#gp-gold)" letter-spacing="6">ZENI</text>
+  <text x="376" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#F4ECD7" letter-spacing="6">PESA</text>
+
+  <g stroke="#D4AF37" stroke-width="1.5" opacity="0.8">
+    <line x1="180" y1="112" x2="598" y2="112"/>
+    <line x1="180" y1="116" x2="180" y2="112"/>
+    <line x1="598" y1="116" x2="598" y2="112"/>
+  </g>
+  <text x="180" y="136" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="600" fill="#C9B77E" letter-spacing="7">CLASSIC CRASH CASINO</text>
+  <text x="180" y="156" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="500" fill="#A9B795" letter-spacing="4">EST. KENYA  •  PLAY RESPONSIBLY</text>
+</svg>
